@@ -401,9 +401,149 @@ footer.credit{
 .end-emoji{font-size:54px; margin-bottom:6px;}
 
 @media (max-width:640px){
-  .battlefield{grid-template-columns:1fr; }
-  .vs-badge{margin:6px auto;}
-  .card{width:230px;}
+  /* ===== MOBILE GAME VIEWPORT =====
+     Keep both cards + VS + lifelines visible without vertical scrolling. */
+  body.game-mode{
+    height:100dvh;
+    min-height:100dvh;
+    overflow:hidden;
+    padding:7px 7px 8px;
+  }
+  body.game-mode .wrap{
+    height:100%;
+    max-width:100%;
+    display:flex;
+    flex-direction:column;
+  }
+  body.game-mode header{
+    flex:none;
+    padding:2px 2px 7px;
+    margin-bottom:7px;
+    gap:5px;
+  }
+  body.game-mode .brand{gap:7px;}
+  body.game-mode .brand .seam{width:28px;height:28px;}
+  body.game-mode .brand .seam::before{left:9px;top:5px;bottom:5px;}
+  body.game-mode .brand .seam::after{right:9px;top:5px;bottom:5px;}
+  body.game-mode .brand h1{font-size:21px;}
+  body.game-mode .brand p{font-size:8px;margin-top:1px;}
+  body.game-mode .scoreboard{gap:4px;}
+  body.game-mode .pill{min-width:43px;padding:4px 6px;border-radius:6px;}
+  body.game-mode .pill span.n{font-size:14px;}
+  body.game-mode .pill span.l{font-size:7px;}
+  body.game-mode .sound-btn{width:30px;height:30px;font-size:13px;border-radius:6px;}
+
+  body.game-mode .arena{
+    flex:1;
+    min-height:0;
+    gap:4px;
+    overflow:hidden;
+  }
+  body.game-mode .status-line{
+    flex:none;
+    min-height:20px;
+    height:20px;
+    font-size:10px;
+    line-height:20px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  body.game-mode .battlefield{
+    flex:none;
+    grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);
+    align-items:start;
+    gap:4px;
+    padding:0;
+    min-height:0;
+  }
+  body.game-mode .slot-label{
+    font-size:8px;
+    letter-spacing:.7px;
+    margin-bottom:3px;
+  }
+  body.game-mode .vs-badge{
+    width:28px;height:28px;
+    margin:112px auto 0;
+    font-size:13px;
+    border-width:1.5px;
+  }
+  body.game-mode .card{
+    width:min(39vw,155px);
+    max-width:155px;
+    aspect-ratio:5/7.9;
+    border-radius:10px;
+  }
+  body.game-mode .card-face{border-radius:10px;border-width:2px;}
+  body.game-mode .card-back .mark .stitch{width:34px;height:34px;margin-bottom:4px;}
+  body.game-mode .card-back .mark span{font-size:9px;letter-spacing:1px;}
+  body.game-mode .card-front .top{padding:4px 5px 3px;}
+  body.game-mode .card-front .role-tag{font-size:7px;padding:2px 4px;border-radius:3px;}
+  body.game-mode .card-front .era-tag{font-size:7px;}
+  body.game-mode .portrait{height:66px;}
+  body.game-mode .portrait .role-badge{width:20px;height:20px;right:5px;bottom:4px;font-size:10px;border-width:1.5px;}
+  body.game-mode .portrait .mystery-lock{font-size:20px;}
+  body.game-mode .card-front .name{font-size:11px;padding:2px 3px 0;line-height:1;}
+  body.game-mode .name-row{gap:2px;padding:1px 2px 0;}
+  body.game-mode .name-row .name{padding:2px 0 0 !important;}
+  body.game-mode .pg-btn{width:17px;height:17px;font-size:7px;border-width:1px;box-shadow:0 1px 0 #9c7423;}
+  body.game-mode .card-front .country{font-size:7px;letter-spacing:.3px;margin-top:1px;}
+  body.game-mode .more-stats{font-size:6px;letter-spacing:.2px;margin-top:1px;}
+  body.game-mode .stat-list{
+    margin:3px 4px 4px;
+    border-radius:5px;
+    gap:1px;
+  }
+  body.game-mode .stat-row{
+    min-height:0;
+    padding:2px 4px;
+    gap:0;
+  }
+  body.game-mode .stat-row .k{font-size:5.8px;letter-spacing:0;}
+  body.game-mode .stat-row .v,
+  body.game-mode .stat-row .v.masked{font-size:9px;line-height:1.05;letter-spacing:1px;}
+
+  body.game-mode .deck-strip{height:8px;margin-top:2px;gap:1px;}
+  body.game-mode .mini-card{width:4px;height:7px;border-radius:1px;}
+
+  body.game-mode .lifelines{
+    flex:none;
+    margin:1px 0 2px;
+    gap:4px;
+    flex-wrap:nowrap;
+  }
+  body.game-mode .life-btn{
+    flex:1;
+    min-width:0;
+    padding:4px 2px;
+    gap:0;
+    border-radius:7px;
+  }
+  body.game-mode .life-btn .life-icon{font-size:13px;line-height:14px;}
+  body.game-mode .life-btn .life-label{font-size:6.5px;letter-spacing:0;white-space:nowrap;}
+  body.game-mode .life-btn .life-count{font-size:8px;padding:0 4px;margin-top:1px;border-radius:5px;}
+
+  body.game-mode .result-banner{
+    flex:none;
+    min-height:22px;
+    height:22px;
+    font-size:11px;
+    line-height:22px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  body.game-mode .controls{
+    flex:none;
+    gap:5px;
+    margin-top:0;
+    min-height:34px;
+  }
+  body.game-mode .controls .btn{
+    font-size:11px;
+    padding:7px 14px;
+    border-radius:7px;
+  }
 }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
@@ -553,11 +693,16 @@ footer.credit{
 
       <div id="netConnected" class="hidden">
         <p class="sub" style="margin-bottom:4px"><span class="dot"></span><b id="netRole">Connected</b></p>
-        <p class="sub" style="margin-bottom:10px">Room <b id="netRoomLabel"></b> · Your friend is connected.</p>
-        <div class="row" style="margin:12px 0">
-          <button class="btn" id="startOnlineBtn">START GAME</button>
+        <p class="sub" style="margin-bottom:10px">Room <b id="netRoomLabel"></b> · Connection test — send a ping or a message to check it works both ways.</p>
+        <div class="row" style="margin:8px 0">
+          <button class="btn small" id="pingBtn">PING</button>
+          <span id="pingResult" style="font-family:'Space Mono',monospace;font-size:13px;color:var(--gold-bright)">—</span>
         </div>
-        <p id="onlineWaitText" class="sub" style="margin:4px auto 0">Waiting for the host to start the match…</p>
+        <div class="net-log" id="netLog"></div>
+        <div class="row" style="margin:10px 0 0">
+          <input class="net-msg" id="netMsg" placeholder="Type a test message…" maxlength="120">
+          <button class="btn small" id="sendMsgBtn">SEND</button>
+        </div>
       </div>
 
       <div class="net-status" id="netStatus"></div>
@@ -942,7 +1087,7 @@ function usePeekLifeline(){
 }
 
 function startGame(){
-  try{ document.querySelectorAll('.slot-label')[1].textContent='CPU card'; const l=document.querySelector('#cpuCount')?.parentElement?.querySelector('.l'); if(l) l.textContent='CPU'; }catch(e){}
+  document.body.classList.add('game-mode');
   const shuffled = shuffle(PLAYERS);
   const half = Math.floor(shuffled.length/2);
   youDeck = shuffled.slice(0, half);
@@ -1167,6 +1312,7 @@ function playRound(key, calledBy){
 }
 
 function endGame(){
+  document.body.classList.remove('game-mode');
   document.getElementById('gameScreen').classList.add('hidden');
   const endScreen = document.getElementById('endScreen');
   endScreen.classList.remove('hidden');
@@ -1194,39 +1340,33 @@ document.getElementById('lifeRandom').addEventListener('click', useRandomLifelin
 document.getElementById('lifePeek').addEventListener('click', usePeekLifeline);
 </script>
 <script>
-/* ============ ONLINE MULTIPLAYER (PeerJS) ============
-   Host is authoritative for deck order, turns, ties and round results.
-   Both browsers use the same PLAYERS data and only exchange compact game state.
-*/
+/* ============ ONLINE ROOM (PeerJS, peer-to-peer) — step 1: create / join / connection test ============ */
 (function(){
   const $ = id => document.getElementById(id);
   const PREFIX = 'ctrump-';
-  const ALPHA = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const ALPHA = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no look-alike characters
   let net = {peer:null, conn:null, isHost:false, code:'', connected:false};
   let joinTimer = null;
-  let onlineMode = false;
-  let onlineStarted = false;
-  let onlineState = null;
 
   function genCode(){ let s=''; for(let i=0;i<5;i++) s+=ALPHA[Math.floor(Math.random()*ALPHA.length)]; return s; }
   function showScreen(id){ ['startScreen','gameScreen','endScreen','onlineScreen'].forEach(x=>$(x).classList.toggle('hidden', x!==id)); }
-  function setView(v){
-    $('netMenu').classList.toggle('hidden', v!=='menu');
-    $('netHosting').classList.toggle('hidden', v!=='hosting');
-    $('netConnected').classList.toggle('hidden', v!=='connected');
-  }
+  function setView(v){ $('netMenu').classList.toggle('hidden', v!=='menu'); $('netHosting').classList.toggle('hidden', v!=='hosting'); $('netConnected').classList.toggle('hidden', v!=='connected'); }
   function setStatus(msg, kind){ const el=$('netStatus'); el.textContent=msg||''; el.className='net-status '+(kind||''); }
+  function log(who, text){
+    const d=document.createElement('div'); d.className=who;
+    d.textContent=(who==='me'?'You: ':'Friend: ')+text;
+    $('netLog').appendChild(d); $('netLog').scrollTop=$('netLog').scrollHeight;
+  }
+  function resetNet(){
+    clearTimeout(joinTimer);
+    try{ net.conn && net.conn.close(); }catch(e){}
+    try{ net.peer && net.peer.destroy(); }catch(e){}
+    net = {peer:null, conn:null, isHost:false, code:'', connected:false};
+  }
   function libReady(){
     if(typeof Peer==='undefined'){ setStatus('Online play could not load. Check your internet connection and reload the page.','err'); return false; }
     return true;
   }
-  function setOnlineLabels(active){
-    const labels=document.querySelectorAll('.slot-label');
-    if(labels.length>=2){ labels[0].textContent=active?'Your card':'Your card'; labels[1].textContent=active?'Friend card':'CPU card'; }
-    const cpuLabel=document.querySelector('#cpuCount')?.parentElement?.querySelector('.l');
-    if(cpuLabel) cpuLabel.textContent=active?'Friend':'CPU';
-  }
-
   function handleErr(err){
     const t = err && err.type;
     if(t==='peer-unavailable') setStatus('Room not found. Check the code and try again.','err');
@@ -1235,342 +1375,115 @@ document.getElementById('lifePeek').addEventListener('click', usePeekLifeline);
     else setStatus('Connection problem'+(t?' ('+t+')':'')+'. Please try again.','err');
     if(!net.connected) setView('menu');
   }
-  function copyText(text, okMsg){
-    const done=()=>setStatus(okMsg,'ok');
-    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done).catch(fallback); else fallback();
-    function fallback(){
-      const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); done(); }catch(e){ setStatus('Copy failed — copy the code manually.','err'); }
-      document.body.removeChild(ta);
-    }
-  }
-  function inviteLink(){ return location.origin + location.pathname + '?room=' + net.code; }
-
-  function resetNet(){
-    clearTimeout(joinTimer);
-    try{ net.conn && net.conn.close(); }catch(e){}
-    try{ net.peer && net.peer.destroy(); }catch(e){}
-    net={peer:null,conn:null,isHost:false,code:'',connected:false};
-    onlineMode=false; onlineStarted=false; onlineState=null;
-  }
 
   function createRoom(tries){
-    tries=tries||0;
+    tries = tries||0;
     if(!libReady()) return;
     resetNet();
-    net.isHost=true; net.code=genCode();
+    net.isHost = true; net.code = genCode();
     setView('menu'); setStatus('Creating room…');
-    const peer=new Peer(PREFIX+net.code); net.peer=peer;
-    peer.on('open',()=>{
-      $('roomCode').textContent=net.code;
-      setView('hosting'); setStatus('Room is ready. Share the code.','ok');
+    const peer = new Peer(PREFIX+net.code);
+    net.peer = peer;
+    peer.on('open', ()=>{
+      $('roomCode').textContent = net.code;
+      setView('hosting');
+      setStatus('Room is ready.','ok');
     });
-    peer.on('connection',conn=>{
-      if(net.conn && net.connected){
-        conn.on('open',()=>{ conn.send({t:'full'}); setTimeout(()=>conn.close(),400); });
+    peer.on('connection', conn=>{
+      if(net.conn && net.connected){ // room already has two players
+        conn.on('open', ()=>{ conn.send({t:'full'}); setTimeout(()=>conn.close(),400); });
         return;
       }
       setupConn(conn);
     });
-    peer.on('error',err=>{
+    peer.on('error', err=>{
       if(err.type==='unavailable-id' && tries<5){ createRoom(tries+1); return; }
       handleErr(err);
     });
-    peer.on('disconnected',()=>{ if(!peer.destroyed){ try{peer.reconnect();}catch(e){} } });
+    peer.on('disconnected', ()=>{ if(!peer.destroyed){ try{ peer.reconnect(); }catch(e){} } });
   }
 
   function joinRoom(raw){
-    const code=(raw||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+    const code = (raw||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
     if(code.length!==5){ setStatus('Enter the 5-character room code.','err'); return; }
     if(!libReady()) return;
-    resetNet(); net.isHost=false; net.code=code;
+    resetNet();
+    net.isHost = false; net.code = code;
     setStatus('Connecting to room '+code+'…');
-    const peer=new Peer(); net.peer=peer;
-    joinTimer=setTimeout(()=>{
-      if(!net.connected){ setStatus('Could not connect. Check the code, or try again.','err'); setView('menu'); }
-    },15000);
-    peer.on('open',()=>setupConn(peer.connect(PREFIX+code,{reliable:true})));
-    peer.on('error',err=>{clearTimeout(joinTimer);handleErr(err);});
+    const peer = new Peer();
+    net.peer = peer;
+    joinTimer = setTimeout(()=>{
+      if(!net.connected){
+        setStatus('Could not connect. Check the code, or try again — some networks block direct connections.','err');
+        setView('menu');
+      }
+    }, 15000);
+    peer.on('open', ()=>{ setupConn(peer.connect(PREFIX+code, {reliable:true})); });
+    peer.on('error', err=>{ clearTimeout(joinTimer); handleErr(err); });
   }
 
   function setupConn(conn){
-    net.conn=conn;
-    const onOpen=()=>{
-      clearTimeout(joinTimer); net.connected=true;
-      $('netRole').textContent=net.isHost?'Friend joined — HOST (Player 1)':'Connected — Player 2';
-      $('netRoomLabel').textContent=net.code;
-      $('startOnlineBtn').style.display=net.isHost?'inline-block':'none';
-      $('onlineWaitText').textContent=net.isHost?'Both players are ready. Start the match when you are ready.':'Waiting for the host to start the match…';
-      setView('connected'); setStatus('Connected ✔','ok');
-      if(net.isHost) conn.send({t:'ready'});
+    net.conn = conn;
+    const onOpen = ()=>{
+      clearTimeout(joinTimer);
+      net.connected = true;
+      $('netLog').innerHTML=''; $('pingResult').textContent='—';
+      $('netRole').textContent = net.isHost ? 'Friend joined — you are the HOST (Player 1)' : 'Connected — you are Player 2';
+      $('netRoomLabel').textContent = net.code;
+      setView('connected');
+      setStatus('Connected ✔','ok');
+      conn.send({t:'hello'});
     };
-    if(conn.open) onOpen(); else conn.on('open',onOpen);
-    conn.on('data',d=>{
+    if(conn.open) onOpen(); else conn.on('open', onOpen);
+    conn.on('data', d=>{
       if(!d || typeof d!=='object') return;
-      if(d.t==='full'){ setStatus('That room already has two players.','err'); setView('menu'); resetNet(); return; }
-      if(d.t==='ready'){
-        if(!net.isHost) $('onlineWaitText').textContent='Connected. Waiting for the host to start the match…';
-      }
-      if(d.t==='start' && !net.isHost) receiveOnlineStart(d);
-      if(d.t==='choose' && net.isHost) hostReceiveChoice(d.key);
-      if(d.t==='state') receiveOnlineState(d.state);
-      if(d.t==='restart') receiveOnlineRestart(d);
-      if(d.t==='gameover') receiveOnlineGameOver(d);
+      if(d.t==='ping') conn.send({t:'pong', ts:d.ts});
+      else if(d.t==='pong'){ $('pingResult').textContent = Math.round(performance.now()-d.ts)+' ms round trip'; }
+      else if(d.t==='msg'){ log('them', String(d.text||'').slice(0,120)); }
+      else if(d.t==='full'){ setStatus('That room already has two players.','err'); setView('menu'); resetNet(); }
     });
-    conn.on('close',()=>{
-      const wasPlaying=onlineMode && onlineStarted;
-      net.connected=false; net.conn=null;
-      if(wasPlaying){
-        showScreen('onlineScreen'); setView('connected');
-        setStatus('Your friend disconnected. The match has ended.','err');
-        $('startOnlineBtn').style.display=net.isHost?'inline-block':'none';
-      }else if(net.isHost){ setView('hosting'); setStatus('Your friend left. The room is still open.','err'); }
+    conn.on('close', ()=>{
+      if(!net.connected) return;
+      net.connected = false; net.conn = null;
+      if(net.isHost){ setView('hosting'); setStatus('Your friend left. The room is still open.','err'); }
       else { setView('menu'); setStatus('The host closed the room.','err'); resetNet(); }
     });
-    conn.on('error',()=>setStatus('Connection error. Please try again.','err'));
+    conn.on('error', ()=>{ setStatus('Connection error. Please try again.','err'); });
   }
 
-  function playerIndexByName(name){ return PLAYERS.findIndex(p=>p.name===name); }
-  function namesToPlayers(names){ return names.map(n=>PLAYERS[playerIndexByName(n)]).filter(Boolean); }
-
-  function bindOnlineStatRows(){
-    if(!onlineMode || roundLocked || !currentYou) return;
-    document.querySelectorAll('#youFront .stat-row.selectable').forEach(row=>{
-      row.onclick=()=>{
-        const key=row.dataset.key;
-        if(net.isHost){
-          if(callTurn==='player') resolveOnlineRound(key,'player');
-        }else{
-          if(callTurn==='player') guestChoose(key);
-        }
-      };
-    });
-  }
-
-  function applyOnlineUI(state){
-    onlineState=state;
-    youDeck=namesToPlayers(state.youDeck);
-    cpuDeck=namesToPlayers(state.oppDeck);
-    pot=namesToPlayers(state.pot);
-    callTurn=state.callTurn;
-    currentYou=youDeck[0]||null;
-    currentCpu=cpuDeck[0]||null;
-    roundLocked=!!state.roundLocked;
-    resolvedOpts=null; statPage=0;
-    if(!currentYou || !currentCpu){ return; }
-    $('youCount').textContent=youDeck.length;
-    $('cpuCount').textContent=cpuDeck.length;
-    renderDeckStrip($('youDeckStrip'),youDeck.length);
-    renderDeckStrip($('cpuDeckStrip'),cpuDeck.length);
-    $('youCard').classList.remove('flipped'); $('cpuCard').classList.remove('flipped');
-    ownRevealedKeys=new Set(); ownFullReveal=false; cpuRevealedKeys=new Set(); peekArmed=false;
-    rerenderYouCard(); rerenderCpuCard(); updateLifelineUI(); bindOnlineStatRows();
-    setTimeout(()=>{ $('youCard').classList.add('flipped'); sfxFlip(); },120);
-    setTimeout(()=>{ $('cpuCard').classList.add('flipped'); sfxFlip(); },240);
-    $('statusLine').textContent = state.callTurn==='player'
-      ? `Your call — pick a category${state.pot.length?' (pot: '+state.pot.length+' cards)':''}`
-      : `Friend's call — waiting for their category${state.pot.length?' (pot: '+state.pot.length+' cards)':''}`;
-    $('nextBtn').style.display=state.callTurn==='player' && !state.roundLocked?'inline-block':'none';
-  }
-
-  function startOnlineHost(){
-    if(!net.isHost || !net.connected) return;
-    const shuffled=shuffle(PLAYERS);
-    const half=Math.floor(shuffled.length/2);
-    onlineState={
-      youDeck:shuffled.slice(0,half).map(p=>p.name),
-      oppDeck:shuffled.slice(half).map(p=>p.name),
-      pot:[], callTurn:'player', roundLocked:false
-    };
-    onlineMode=true; onlineStarted=true;
-    setOnlineLabels(true);
-    lifelines={reveal:LIFELINE_MAX.reveal,random:LIFELINE_MAX.random,peek:LIFELINE_MAX.peek};
-    $('startOnlineBtn').style.display='none';
-    $('onlineWaitText').textContent='Match started!';
-    net.conn.send({t:'start',state:onlineState});
-    applyOnlineUI(onlineState); showScreen('gameScreen');
-    sfxDeal();
-  }
-
-  function receiveOnlineStart(d){
-    onlineMode=true; onlineStarted=true;
-    setOnlineLabels(true);
-    setOnlineLabels(true);
-    lifelines={reveal:LIFELINE_MAX.reveal,random:LIFELINE_MAX.random,peek:LIFELINE_MAX.peek};
-    applyOnlineUI(d.state); showScreen('gameScreen'); sfxDeal();
-  }
-
-  function makeStateForHost(){
-    return {
-      youDeck:youDeck.map(p=>p.name),
-      oppDeck:cpuDeck.map(p=>p.name),
-      pot:pot.map(p=>p.name),
-      callTurn, roundLocked
-    };
-  }
-
-  function broadcastState(){
-    if(net.conn && net.connected) net.conn.send({t:'state',state:makeStateForHost()});
-  }
-
-  function hostReceiveChoice(key){
-    if(!onlineMode || !net.isHost || roundLocked) return;
-    if(callTurn!=='player2') return;
-    resolveOnlineRound(key,'player2');
-  }
-
-  function resolveOnlineRound(key, calledBy){
-    if(roundLocked || !currentYou || !currentCpu) return;
-    roundLocked=true;
-    const yv=currentYou.stats[key], cv=currentCpu.stats[key];
-    let outcome=yv>cv?'win':(yv<cv?'lose':'tie');
-    const battled=[currentYou,currentCpu,...pot];
-    youDeck.shift(); cpuDeck.shift();
-    if(outcome==='win'){
-      pot=[]; youDeck.push(...shuffle(battled)); callTurn='player';
-    }else if(outcome==='lose'){
-      pot=[]; cpuDeck.push(...shuffle(battled)); callTurn='player2';
-    }else{
-      pot=battled; // same caller keeps the call
-    }
-    resolvedOpts={
-      you:{hideStats:true,revealKeys:[key],chosenKey:key,outcomeKey:key,outcome},
-      cpu:{hideStats:true,revealKeys:[key],chosenKey:key,outcomeKey:key,outcome:outcome==='win'?'lose':(outcome==='lose'?'win':'tie')}
-    };
-    $('youFront').innerHTML=cardFrontHTML(currentYou,resolvedOpts.you);
-    $('cpuFront').innerHTML=cardFrontHTML(currentCpu,resolvedOpts.cpu);
-    $('resultBanner').style.color=outcome==='win'?'var(--wc)':outcome==='lose'?'var(--lc)':'var(--gold-bright)';
-    $('resultBanner').textContent=outcome==='win'
-      ? `YOU WIN THE ROUND! +${battled.length} CARD${battled.length>1?'S':''}`
-      : outcome==='lose'
-        ? `FRIEND WINS THE ROUND — ${battled.length} CARD${battled.length>1?'S':''}`
-        : `TIE! ${battled.length} CARDS GO INTO THE POT`;
-    $('statusLine').textContent=outcome==='tie'
-      ? `${calledBy==='player2'?'Friend':'You'} called ${STAT_LABELS[key]} — both ${yv}. Same caller goes again.`
-      : `${STAT_LABELS[key]}: ${yv} vs ${cv}`;
-    $('youCount').textContent=youDeck.length; $('cpuCount').textContent=cpuDeck.length;
-    renderDeckStrip($('youDeckStrip'),youDeck.length); renderDeckStrip($('cpuDeckStrip'),cpuDeck.length);
-    if(outcome==='win') sfxWin(); else if(outcome==='lose') sfxLose(); else sfxTie();
-    const youSlot=$('youCard').closest('.slot'), cpuSlot=$('cpuCard').closest('.slot');
-    const winner=outcome==='win'?youSlot:outcome==='lose'?cpuSlot:null;
-    if(winner){ winner.classList.remove('win-shake'); void winner.offsetWidth; winner.classList.add('win-shake'); }
-    if(youDeck.length===0 || cpuDeck.length===0){
-      if(net.isHost){ net.conn.send({t:'state',state:makeStateForHost()}); setTimeout(()=>finishOnlineHost(),900); }
-      return;
-    }
-    if(net.isHost){
-      onlineState=makeStateForHost();
-      broadcastState();
-    }else{
-      // Guest only sends the requested stat; host performs resolution.
-    }
-    setTimeout(()=>{
-      if(!net.connected || !onlineMode) return;
-      roundLocked=false;
-      if(net.isHost){ broadcastState(); prepareOnlineNextRound(); }
-    },900);
-  }
-
-  function prepareOnlineNextRound(){
-    if(!onlineMode || !currentYou || !currentCpu) return;
-    if(youDeck.length===0 || cpuDeck.length===0){ finishOnlineHost(); return; }
-    resolvedOpts=null; roundLocked=false; statPage=0;
-    currentYou=youDeck[0]; currentCpu=cpuDeck[0];
-    ownRevealedKeys=new Set(); ownFullReveal=false; cpuRevealedKeys=new Set(); peekArmed=false;
-    rerenderYouCard(); rerenderCpuCard(); updateLifelineUI(); bindOnlineStatRows();
-    $('youCard').classList.remove('flipped'); $('cpuCard').classList.remove('flipped');
-    setTimeout(()=>{$('youCard').classList.add('flipped');sfxFlip();},100);
-    setTimeout(()=>{$('cpuCard').classList.add('flipped');sfxFlip();},220);
-    $('statusLine').textContent=callTurn==='player'?'Your call — pick a category':'Friend\'s call — waiting for their category';
-    $('nextBtn').style.display='none';
-    if(net.isHost) broadcastState();
-  }
-
-  function receiveOnlineState(state){
-    if(!onlineMode) return;
-    // Guest receives the authoritative state from host. The guest's local deck is mapped to "you".
-    const mapped={youDeck:state.oppDeck,oppDeck:state.youDeck,pot:state.pot,callTurn:state.callTurn==='player2'?'player':'opponent',roundLocked:state.roundLocked};
-    applyOnlineUI(mapped);
-    if(!state.roundLocked) $('resultBanner').textContent='';
-  }
-
-  function guestChoose(key){
-    if(!onlineMode || net.isHost || !net.conn || !net.connected || roundLocked) return;
-    if(onlineState && onlineState.callTurn!=='player') return;
-    roundLocked=true; updateLifelineUI();
-    if(pageOfKey(key)!==statPage){statPage=pageOfKey(key);renderCurrentCards();}
-    $('resultBanner').textContent=`You called ${STAT_LABELS[key]}`;
-    $('statusLine').textContent=`Waiting for the host to resolve ${STAT_LABELS[key]}…`;
-    net.conn.send({t:'choose',key});
-  }
-
-  function finishOnlineHost(){
-    onlineState=makeStateForHost();
-    const winner=youDeck.length>cpuDeck.length?'player1':(cpuDeck.length>youDeck.length?'player2':'draw');
-    net.conn && net.connected && net.conn.send({t:'gameover',winner,you:youDeck.length,opp:cpuDeck.length});
-    showOnlineEnd(winner==='player1');
-  }
-  function receiveOnlineGameOver(d){ showOnlineEnd(d.winner==='player2'); }
-  function showOnlineEnd(iWon){
-    $('gameScreen').classList.add('hidden'); $('endScreen').classList.remove('hidden');
-    const draw=onlineState && onlineState.youDeck && onlineState.oppDeck && onlineState.youDeck.length===onlineState.oppDeck.length;
-    $('endEmoji').textContent=draw?'🤝':(iWon?'🏆':'😞');
-    $('endTitle').textContent=draw?'It\'s a Draw!':(iWon?'You Win!':'Friend Wins!');
-    $('endSub').textContent=draw?'Both players finished with the same number of cards.':(iWon?'You collected the whole deck. Legendary knock.':'Your friend collected the whole deck.');
-    if(iWon) burstConfetti(innerWidth/2,innerHeight*.3,['#e0b04d','#f2cb6e','#1f6f4a','#f3ecd8','#b3211a'],120);
-    sfxGameOver(iWon||draw);
-  }
-
-  // Intercept stat selection in multiplayer while retaining the existing single-player engine.
-  const originalRerenderYouCard=rerenderYouCard;
-  window.rerenderYouCard=function(){
-    originalRerenderYouCard();
-    if(!onlineMode || !currentYou || roundLocked) return;
-    document.querySelectorAll('#youFront .stat-row.selectable').forEach(row=>{
-      row.onclick=()=>{
-        if(net.isHost){
-          if(callTurn!=='player') return;
-          resolveOnlineRound(row.dataset.key,'player');
-        }else{
-          if(callTurn!=='player') return;
-          guestChoose(row.dataset.key);
-        }
-      };
-    });
-  };
-
-  // Make multiplayer use the same visible card renderer, but without CPU wording.
-  const originalNextRound=nextRound;
-  window.nextRound=function(first){
-    if(onlineMode){ return; }
-    originalNextRound(first);
-  };
-
-  function leave(){ resetNet(); setOnlineLabels(false); setView('menu'); setStatus(''); showScreen('startScreen'); }
-  function restartOnline(){
-    if(!onlineMode || !net.connected) return;
-    if(!net.isHost){ showScreen('onlineScreen'); setView('connected'); $('startOnlineBtn').style.display='none'; $('onlineWaitText').textContent='Waiting for the host to start a new match…'; return; }
-    if(net.isHost){
-      const shuffled=shuffle(PLAYERS), half=Math.floor(shuffled.length/2);
-      onlineState={youDeck:shuffled.slice(0,half).map(p=>p.name),oppDeck:shuffled.slice(half).map(p=>p.name),pot:[],callTurn:'player',roundLocked:false};
-      onlineStarted=true; net.conn.send({t:'start',state:onlineState}); applyOnlineUI(onlineState); showScreen('gameScreen');
+  function copyText(text, okMsg){
+    const done = ()=>setStatus(okMsg,'ok');
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(()=>fallback()); }
+    else fallback();
+    function fallback(){
+      const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); done(); }catch(e){ setStatus('Copy failed — select the code and copy it manually.','err'); }
+      document.body.removeChild(ta);
     }
   }
-  function receiveOnlineRestart(d){ receiveOnlineStart(d); }
+  function inviteLink(){ return location.origin + location.pathname + '?room=' + net.code; }
+  function leave(){ resetNet(); setView('menu'); setStatus(''); showScreen('startScreen'); }
 
-  $('playOnlineBtn').addEventListener('click',()=>{setView('menu');setStatus('');showScreen('onlineScreen');});
-  $('createRoomBtn').addEventListener('click',()=>createRoom(0));
-  $('joinRoomBtn').addEventListener('click',()=>joinRoom($('joinInput').value));
-  $('joinInput').addEventListener('keydown',e=>{if(e.key==='Enter')joinRoom($('joinInput').value);});
-  $('copyCodeBtn').addEventListener('click',()=>copyText(net.code,'Code copied ✔'));
-  $('copyLinkBtn').addEventListener('click',()=>copyText(inviteLink(),'Invite link copied ✔'));
-  $('startOnlineBtn').addEventListener('click',startOnlineHost);
-  $('netBackBtn').addEventListener('click',leave);
-  $('playAgainBtn').addEventListener('click',()=>{ if(onlineMode){ restartOnline(); } else startGame(); });
-  window.addEventListener('beforeunload',()=>{try{net.peer&&net.peer.destroy();}catch(e){}});
+  $('playOnlineBtn').addEventListener('click', ()=>{ setView('menu'); setStatus(''); showScreen('onlineScreen'); });
+  $('createRoomBtn').addEventListener('click', ()=>createRoom(0));
+  $('joinRoomBtn').addEventListener('click', ()=>joinRoom($('joinInput').value));
+  $('joinInput').addEventListener('keydown', e=>{ if(e.key==='Enter') joinRoom($('joinInput').value); });
+  $('copyCodeBtn').addEventListener('click', ()=>copyText(net.code,'Code copied ✔'));
+  $('copyLinkBtn').addEventListener('click', ()=>copyText(inviteLink(),'Invite link copied ✔'));
+  $('pingBtn').addEventListener('click', ()=>{ if(net.conn && net.connected){ $('pingResult').textContent='…'; net.conn.send({t:'ping', ts:performance.now()}); } });
+  function sendMsg(){
+    const el=$('netMsg'); const text=el.value.trim();
+    if(!text || !net.conn || !net.connected) return;
+    net.conn.send({t:'msg', text}); log('me', text); el.value='';
+  }
+  $('sendMsgBtn').addEventListener('click', sendMsg);
+  $('netMsg').addEventListener('keydown', e=>{ if(e.key==='Enter') sendMsg(); });
+  $('netBackBtn').addEventListener('click', leave);
+  window.addEventListener('beforeunload', ()=>{ try{ net.peer && net.peer.destroy(); }catch(e){} });
 
-  const q=new URLSearchParams(location.search).get('room');
-  if(q){showScreen('onlineScreen');setView('menu');$('joinInput').value=q.toUpperCase().slice(0,5);setTimeout(()=>joinRoom(q),300);}
+  // invite link: ?room=CODE opens the join screen and connects automatically
+  const q = new URLSearchParams(location.search).get('room');
+  if(q){ showScreen('onlineScreen'); setView('menu'); $('joinInput').value = q.toUpperCase().slice(0,5); setTimeout(()=>joinRoom(q), 300); }
 })();
 </script>
 </body>
